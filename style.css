@@ -1,5 +1,7 @@
 html, body
 {
+    margin: 0;
+    padding: 0;
     background-color: #afafaf;
 }
 
@@ -7,8 +9,24 @@ canvas
 {
     display: block;
     margin: 0 auto;
+    padding: 0;
     background-color: #afafaf;
     border: 5px solid #000000;
     border-bottom: none;
     border-radius: 15px;
+}
+
+@media screen and (max-width: 768px) 
+{
+    html, body {
+        width: 100vw;
+        height: 80vh;
+    }
+
+    canvas {
+        width: 100vw;
+        height: 90vh;
+        border: none;
+        margin: 0;
+    }
 }

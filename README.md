@@ -6,7 +6,11 @@
 
 Clone do jogo Breakout de Arcade(1976) feito em JavaScript.
 
-Controles: Setinhas para Esquerda e Direita.
+Controles: 
+
+PC: Setinhas para Esquerda e Direita.
+
+Mobile: Tocar no lado Esquerdo ou Direito da tela.
 
 ## 👨‍🏫 Testando
 

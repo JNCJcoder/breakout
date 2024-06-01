@@ -209,6 +209,10 @@ class Paddle
 
         document.addEventListener("keydown", Paddle.keyDownHandler, false);
         document.addEventListener("keyup", Paddle.keyUpHandler, false);
+
+        document.addEventListener('touchstart', Paddle.touchStartHandler, false);
+        document.addEventListener('touchmove', Paddle.touchStartHandler, false);
+        document.addEventListener('touchend', Paddle.touchEndHandler, false);
     }
 
     static keyDownHandler(event)
@@ -219,6 +223,32 @@ class Paddle
     static keyUpHandler(event)
     {
         Paddle.commands[event.code] = false;
+    }
+
+    static touchStartHandler(event)
+    {
+        event.preventDefault();
+
+        const touchX = event.touches[0].clientX;
+
+        if(touchX > (canvas.width / 2))
+        {
+            Paddle.commands['ArrowRight'] = true;
+            Paddle.commands['ArrowLeft'] = false;
+        }
+        else if(touchX < (canvas.width / 2))
+        {
+            Paddle.commands['ArrowLeft'] = true;
+            Paddle.commands['ArrowRight'] = false;
+        }
+    }
+
+    static touchEndHandler(event)
+    {
+        event.preventDefault();
+
+        Paddle.commands['ArrowLeft'] = false;
+        Paddle.commands['ArrowRight'] = false;
     }
 
     reset()
